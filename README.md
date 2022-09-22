@@ -35,3 +35,51 @@ What is Shallow Copy & Deep Copy 🙄
 
 What actually happens when you shallow copy is that you just copy in the first level objects. (references to the objects)
 
+![image](https://user-images.githubusercontent.com/86511874/191676241-1d3e4461-10a6-40a6-893e-f87efa3c24fa.png)
+
+✨ Deep Copy
+
+Here you go inside and clone every object and the values to the new object.
+
+![image](https://user-images.githubusercontent.com/86511874/191676284-509a626a-0eef-45b4-9c30-11a0b9d246d8.png)
+
+
+![image](https://user-images.githubusercontent.com/86511874/191676315-c3672f3a-6efd-44e3-af5c-1199b5e01501.png)
+
+❗️ The shallow copy can be dangerous 🥵 WHY ❓
+The shallow copy can be dangerous sometimes because you get the object and that means you copied some references to your new object. So if you did any modification to those references, that could affect the original object.
+
+Structure of the Prototype Design Pattern
+
+![image](https://user-images.githubusercontent.com/86511874/191676400-90812635-a6c0-4392-ba5e-2e007c12f0b5.png)
+🎲 Prototype interface — This is an interface for cloning itself. Normally, it is a single clone method, but sometimes there could be some other methods declared if we wanted.
+
+🎲Client —This represents the creation of a new object by calling a prototype to clone itself.
+
+When to use the Prototype Design Pattern?
+⚡️ When the creation of an object is expensive and it would be more productive to copy an object.
+
+⚡️ When the creation of an object is very time-consuming.
+
+⚡️ When you want to hide the complication of creating a new instance from the client.
+
+⚡️ When needs to keep the no of classes in the system minimum.
+
+Let’s take the below scenario as a real-world issue and the solution at the same time with the help of this Prototype Design Pattern.
+💥 Scenario
+Assume that there is a book store in your town and the shop owner asked you to build a system to keep the details of the book store. So here you need to keep the details of numerous number of books to the system. So Does that mean you need to create instances of Books everytime🧐
+
+NO! 🥳 We can use the Prototype Design Pattern for this scenario.
+
+Types of Books: Educational, Story, Literature
+
+Details of books: book category, type, price
+
+So in the below figure, it shows the UML representation of this scenario:
+![image](https://user-images.githubusercontent.com/86511874/191676485-33ac16c1-565e-4965-a927-1ef70037ecf2.png)
+
+
+
+
+
+
