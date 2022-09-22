@@ -78,6 +78,108 @@ Details of books: book category, type, price
 So in the below figure, it shows the UML representation of this scenario:
 ![image](https://user-images.githubusercontent.com/86511874/191676485-33ac16c1-565e-4965-a927-1ef70037ecf2.png)
 
+✨Book class
+
+So below is the code snippet of the “Book” class and it is an abstract class. Here we need to clone this class. So that this class implements a Cloneable interface
+public abstract class Book implements Cloneable{
+
+    private String bookCategory;
+    private int price;
+
+    public String getBookCategory() {
+        return bookCategory;
+    }
+
+    public void setBookCategory(String bookCategory) {
+        this.bookCategory = bookCategory;
+    }
+    
+    public int getPrice() {
+        return price;
+    }
+
+    public void setPrice(int price) {
+        this.price = price;
+    }
+    
+    @Override
+    protected Object clone() throws CloneNotSupportedException {
+        
+        return super.clone();
+    }
+
+
+}
+
+
+Line 25- super.clone() means it goes to the superclass clone method.
+
+✨Educational class
+
+Below is the “Educational” class and this class extends the “Book” class. (as shown below)(The “Literature” class and “Story” class will also extend the “Book” class same as this)
+
+public class Educational extends Book{
+
+    private String type;
+
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    @Override
+    public String toString() {
+        
+        return "Educational{" +
+                "type=" +type+
+                 '}';
+}
+}
+
+✨BookRegistry class
+
+Below is the “BookRegistry” class. This is the place where you created the object. (the initial object).
+
+So as shown below, usually, we use the “new” keyword only when we created the initial object.
+
+
+Accordingly, inside the initialize() method in the above code, I have created the Educational, Story, and Literature. And then assigned them to this “BookRegistry”.
+
+✨BookStoreApp class
+
+Below is the “BookStoreApp” class. And it contains the main method.
+
+public class BookstoreApp {
+    
+    public static void main(String[] args) {
+      
+        BookRegistry bookregistry = new BookRegistry();
+
+        Educational educational = (Educational) bookregistry.getBook(BookType.EDUCATIONAL);
+        System.out.println(educational);
+
+
+        educational.setType("Undergraduate Books");
+        System.out.println(educational);
+
+        Educational educational2=(Educational)bookregistry.getBook(BookType.EDUCATIONAL);
+        System.out.println(educational2);
+
+    }
+}
+
+![image](https://user-images.githubusercontent.com/86511874/191676901-34efd7f0-214d-45af-8fab-46ea09403f75.png)
+
+The below figure explains the thing that happened in the main method.
+
+
+![image](https://user-images.githubusercontent.com/86511874/191676963-e52a2324-1d70-492a-ae8d-3bb6de2f553e.png)
+
+Click on the below GitHub link to see the full source code of this Book Store scenario
 
 
 
